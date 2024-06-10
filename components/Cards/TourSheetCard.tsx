@@ -6,15 +6,15 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-const TourSheetCard = () => {
+const TourSheetCard = ({ title, description, content }: TourSheetCardTypes) => {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Tour Sheet 1</CardTitle>
-        <CardDescription>10/2/2024 - 15/2/2024</CardDescription>
+        <CardTitle>{title}</CardTitle>
+        <CardDescription>{description}</CardDescription>
       </CardHeader>
       <CardContent>
-        <p>10000rs</p>
+        <p>{content}</p>
       </CardContent>
     </Card>
   );
