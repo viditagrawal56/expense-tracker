@@ -24,6 +24,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { Calendar } from "@/components/ui/calendar";
 import { Card } from "@/components/ui/card";
+import { useRouter } from "next/navigation";
 
 const createTourSheetSchema = z
   .object({
@@ -40,6 +41,10 @@ const createTourSheetSchema = z
   });
 
 const CreateTourSheet = () => {
+  const router = useRouter();
+  const handleBack = () => {
+    router.push("/");
+  };
   const createTourSheetForm = useForm<z.infer<typeof createTourSheetSchema>>({
     resolver: zodResolver(createTourSheetSchema),
     defaultValues: {
@@ -53,7 +58,7 @@ const CreateTourSheet = () => {
   }
   return (
     <div className="flex items-center justify-center h-screen">
-      <Card className="p-12">
+      <Card className="p-12 flex flex-col gap-6">
         <Form {...createTourSheetForm}>
           <form
             onSubmit={createTourSheetForm.handleSubmit(onSubmit)}
@@ -164,6 +169,9 @@ const CreateTourSheet = () => {
             <Button type="submit">Submit</Button>
           </form>
         </Form>
+        <Button variant={"ghost"} onClick={handleBack}>
+          Back
+        </Button>
       </Card>
     </div>
   );

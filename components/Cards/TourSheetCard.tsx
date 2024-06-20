@@ -8,7 +8,7 @@ import {
 
 const TourSheetCard = ({ title, description, content }: TourSheetCardTypes) => {
   return (
-    <Card>
+    <Card className="cursor-pointer">
       <CardHeader>
         <CardTitle>{title}</CardTitle>
         <CardDescription>{description}</CardDescription>
